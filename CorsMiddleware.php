@@ -30,9 +30,7 @@ class CorsMiddleware
     public function run($request, $response, $next)
     {
         $response = $next($request, $response);
-
-        $origin = $_SERVER['HTTP_ORIGIN'] ?? 'none';
-
+        $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : 'none';
         return $this->getResponse($response, $origin, $this->cors);
     }
 
