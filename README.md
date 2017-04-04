@@ -21,6 +21,7 @@ $app->add(new Middleware\CorsMiddleware([
     'https://dev.domain3.com' => ['GET']
   ]);
 ```
+## Examples
 
 This middleware allows you to add method restrictions on a per domain basis. Below are some examples of valid configuration options. HTTP and HTTPS are considered 2 different origins.
 
@@ -40,3 +41,29 @@ $app->add(new Middleware\CorsMiddleware([
 ```
 
 You can either choose to have your methods as an array ['GET', 'POST'] or string 'GET, POST'.
+
+
+## Slim Container
+
+You can use Slim's container to hold the configuration if you prefer to have your configuration in a seperate file.
+
+```php
+$container = new Slim\Container;
+
+.
+.
+.
+
+$container['cors'] = ['*' => 'GET, POST'];
+
+.
+.
+.
+
+$app->add(new Middleware\CorsMiddleware($container['cors']);
+```
+
+
+
+
+
