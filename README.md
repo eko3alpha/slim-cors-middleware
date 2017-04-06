@@ -32,11 +32,11 @@ $app->add(new Middleware\CorsMiddleware([
 ]);
 ```
 
-This will give GET, POST and DELETE access to both http and https versions of api.domain.com
+This will give GET, POST and DELETE access to both http and https versions of api.domain.com, you can either use a string value or array.
 ```php
 $app->add(new Middleware\CorsMiddleware([
   'http://client.domain.com'  => 'GET, POST, DELETE',
-  'https://client.domain.com' => 'GET, POST, DELETE'
+  'https://client.domain.com' => ['GET', 'POST', 'DELETE']
 ]);
 ```
 
