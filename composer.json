@@ -22,7 +22,7 @@
     "require-dev": {},
     "autoload": {
         "psr-4": {
-            "Eko3alpha\\Slim\\Middleware\\": "src/slim/middleware/"
+            "Eko3alpha\\Slim\\Middleware\\": "src"
         }
     }
 }
