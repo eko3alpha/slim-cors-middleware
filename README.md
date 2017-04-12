@@ -5,8 +5,11 @@ A middleware to handle Cors for multiple domains using Slim. "Access-Contro-Allo
 Access-Control-Allow-Origin: *
 ```
 
-This middleware will detect the origin of a request, if its within the allowed list it will set the proper "Access-Control-Allow-Origin" value.
+This middleware will detect the origin of a request, if its within the allowed list it will set the proper "Access-Control-Allow-Origin" value for that domain.
 
+```
+Access-Control-Allow-Origin: https://client.domain.com
+```
 
 ## Install
 
