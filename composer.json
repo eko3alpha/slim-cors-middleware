@@ -1,5 +1,5 @@
 {
-    "name": "eko3alpha/slim-cors-multi-origin-middleware",
+    "name": "eko3alpha/slim-cors-middleware",
     "description": "Slim 3 CORS Multi-Origin Middleware",
     "keywords": [
         "psr-7",
@@ -7,7 +7,7 @@
         "slim",
         "cors"
     ],
-    "homepage": "https://github.com/eko3alpha/slim-cors-multi-origin-middleware",
+    "homepage": "https://github.com/eko3alpha/slim-cors-middleware",
     "license": "MIT",
     "authors": [
         {
