@@ -10,12 +10,18 @@ This middleware will detect the origin of a request, if its within the allowed l
 
 ## Install
 
-Download this file into wherever you store your middlewares.  You can choose to add a psr-4 entry in your composer.json file or include the file manually.
+You can either download manually or use composer.
+
+```
+composer require eko3alpha/slim-cors-middleware
+```
+
+## Usage
 
 ```php
 $app = new \Slim\App();
 
-$app->add(new Middleware\CorsMiddleware([
+$app->add(new \Eko3alpha\Slim\Middleware\CorsMiddleware([
     'https://dev.domain1.com' => ['GET', 'POST'],
     'https://dev.domain2.com' => ['GET', 'POST'],
     'https://dev.domain3.com' => ['GET']
@@ -27,14 +33,14 @@ This middleware allows you to add method restrictions on a per domain basis. Bel
 
 One entry with a wildcard, this will give GET access to all domains requesting resources
 ```php
-$app->add(new Middleware\CorsMiddleware([
+$app->add(new \Eko3alpha\Slim\Middleware\CorsMiddleware([
   '*' => 'GET'
 ]);
 ```
 
 This will give GET, POST and DELETE access to both http and https versions of api.domain.com, you can either use a string value or array.
 ```php
-$app->add(new Middleware\CorsMiddleware([
+$app->add(new \Eko3alpha\Slim\Middleware\CorsMiddleware([
   'http://client.domain.com'  => 'GET, POST, DELETE',
   'https://client.domain.com' => ['GET', 'POST', 'DELETE']
 ]);
@@ -60,7 +66,7 @@ $container['cors'] = ['*' => 'GET, POST'];
 .
 .
 
-$app->add(new Middleware\CorsMiddleware($container['cors']);
+$app->add(new \Eko3alpha\Slim\Middleware\CorsMiddleware($container['cors']);
 ```
 
 
