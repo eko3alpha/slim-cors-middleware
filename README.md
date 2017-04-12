@@ -1,4 +1,4 @@
-# slim-cors-middleware
+# slim-cors-middleware (Slim v3.x)
 A middleware to handle Cors for multiple domains using Slim. "Access-Contro-Allow-Origin" only accepts one domain or a wildcard.  This makes it troublesome if you want to allow different domains access to your api. In order to give access to multiple domains you either need to resort to hacky .htaccess/apache shenanigans or just use a wildcard. It's an all or one approach. Most dev's wont bother coming up with a solution and go with the easy all "*" approach.
 
 ```
