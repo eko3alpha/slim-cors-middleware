@@ -1,5 +1,5 @@
 <?php
-namespace Middleware;
+namespace Eko3alpha\Slim\Middleware;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

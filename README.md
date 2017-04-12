@@ -10,11 +10,11 @@ This middleware will detect the origin of a request, if its within the allowed l
 
 ## Install
 
-I don't have a composer install package.  Download this file into wherever you store your middlewares.  You can choose to add a psr-4 entry in your composer.json file or include the file manually.
+Download this file into wherever you store your middlewares.  You can choose to add a psr-4 entry in your composer.json file or include the file manually.
 
 ```php
 $app = new \Slim\App();
-    
+
 $app->add(new Middleware\CorsMiddleware([
     'https://dev.domain1.com' => ['GET', 'POST'],
     'https://dev.domain2.com' => ['GET', 'POST'],
