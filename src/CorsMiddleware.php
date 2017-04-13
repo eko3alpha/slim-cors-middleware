@@ -38,7 +38,10 @@ class CorsMiddleware
     private function getAllowedMethodsString($cors, $origin)
     {
         $methods = $cors[$origin];
-        return implode(', ', $methods);
+        if (is_array($methods)) {
+            $methods = implode(', ', $methods);
+        }
+        return $methods;
     }
 
 /**
@@ -64,6 +67,11 @@ class CorsMiddleware
  */
     private function getResponse(ResponseInterface $response, $origin, $cors)
     {
+
+        if (isset($cors['*'])) {
+            $origin = '*';
+        }
+
         if (!isset($cors[$origin])) {
             return $response;
         }
