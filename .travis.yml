@@ -9,7 +9,7 @@ php:
 
 before_script: composer install
 
-script: phpunit ./tests --colors=never
+script: phpunit ./tests --colors=never  --configuration phpunit.xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
