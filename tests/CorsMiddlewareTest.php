@@ -15,7 +15,7 @@ use Slim\Http\Headers;
 
 use Eko3alpha\Slim\Middleware\CorsMiddleware;
 
-class CorsMiddlewareTest extends PHPUnit_Framework_TestCase
+class CorsMiddlewareTest extends \PHPUnit_Framework_TestCase
 {
     private $res;
     private $req;
