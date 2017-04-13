@@ -10,7 +10,7 @@ php:
 
 before_script: composer install
 
-script: phpunit ./tests/CorsMiddlewareTest.php
+script: phpunit ./tests
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
