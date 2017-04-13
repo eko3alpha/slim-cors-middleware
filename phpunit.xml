@@ -10,9 +10,15 @@
          processIsolation="false"
          stopOnFailure="false"
 >
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix="Test.php">./tests</directory>
+        </whitelist>
+    </filter>
+
     <testsuites>
-        <testsuite name="all">
-            <directory suffix="Test.php">tests/</directory>
+        <testsuite>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
