@@ -5,13 +5,22 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/eko3alpha/slim-cors-middleware/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/eko3alpha/slim-cors-middleware/?branch=master)
 [![Build Status](https://travis-ci.org/eko3alpha/slim-cors-middleware.svg?branch=master)](https://travis-ci.org/eko3alpha/slim-cors-middleware)
 
-A middleware to handle Cors for multiple domains using Slim. "Access-Contro-Allow-Origin" only accepts one domain or a wildcard.  This makes it troublesome if you want to allow different domains access to your api. In order to give access to multiple domains you either need to resort to hacky .htaccess/apache shenanigans or just use a wildcard. It's an all or one approach. Most dev's wont bother coming up with a solution and go with the easy all "*" approach.
+A middleware to handle Cors for multiple domains using Slim. "Access-Contro-Allow-Origin" only accepts one domain or a wildcard.  This makes it troublesome if you want to allow different domains access to your api. In order to allow access to multiple domains You either need to create an .htaccess/apache rule: [credit](https://stackoverflow.com/questions/1653308/access-control-allow-origin-multiple-origin-domains)
+
+    <FilesMatch "\.(ttf|otf|eot|woff|js|css|woff2)$">
+        <IfModule mod_headers.c>
+            SetEnvIf Origin "^http(s)?:\/\/(www\.|dev\.|local\.)?(domain\.com|domain2\.com)$" AccessControlAllowOrigin=$0
+            Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+        </IfModule>
+    </FilesMatch>
+
+Or you have to use a wildcard.  It's an all or very restrictive approach, which encourage most dev's to opt for the very easy wildcard '*' approach.
 
 ```
 Access-Control-Allow-Origin: *
 ```
 
-This middleware will detect the origin of a request, if its within the allowed list it will set the proper "Access-Control-Allow-Origin" value for that domain.
+This middleware will detect the origin of a request, if its within the allowed list it will set the proper "Access-Control-Allow-Origin" value for that domain, as well as restrict the methods it has access to.
 
 ```
 Access-Control-Allow-Origin: https://client.domain.com
